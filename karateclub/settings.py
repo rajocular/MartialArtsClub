@@ -25,7 +25,7 @@ SECRET_KEY = 'frm)m6yjc))b6&ebf=_24z#ygo72sp(ur5fmd^3r1hydn^0r!1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['karateclub.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['martialartsclub.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -129,3 +129,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
