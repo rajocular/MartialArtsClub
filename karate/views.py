@@ -18,7 +18,7 @@ def admin_home(request):
 
 def guest_home(request):
     logout(request)
-    return render(request, 'Karate/guest_home.html')
+    return render(request, 'karate/guest_home.html')
 
 
 def admin_login(request):
