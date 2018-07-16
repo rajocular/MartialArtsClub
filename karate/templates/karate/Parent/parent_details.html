@@ -113,6 +113,7 @@
                 <td>Street Name</td>
                 <td>City</td>
                 <td>Province</td>
+                <td>Student</td>
             </tr>
             {% for parent in  parents %}
                 <tr>
@@ -132,5 +133,7 @@
                 </tr>
             {% endfor %}
         </table>
+    {% else %}
+        <p> No records to display </p>
     {% endif %}
 {% endblock %}
