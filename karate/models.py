@@ -70,7 +70,7 @@ class Class(models.Model):
     class_id = models.CharField(max_length=4, unique=True)
     class_level = models.CharField(max_length=2, choices=levels, default='BG')
     class_timing = models.TimeField()
-    class_day = models.CharField(max_length=3, choices=days, default='MON')
+    class_day = models.CharField(max_length=3, choices=days, default='MONDAY')
 
     def __str__(self):
         return self.class_id
