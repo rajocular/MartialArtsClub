@@ -445,6 +445,8 @@ def class_register(request):
             form.save()
             class_form = form.save(commit=False)
             return render(request, 'karate/Class/class_register_done.html', {'name': class_form.class_id})
+        else:
+            return render(request, 'karate/Class/class_register_done.html', {'error': class_form})
     else:
         if request.user.is_authenticated:
             form = ClassForm()

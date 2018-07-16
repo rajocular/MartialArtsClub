@@ -5,7 +5,11 @@
 {% endblock %}
 {% block welcome %}{% endblock %}
 {% block content %}
-    <h3>Registration Successful..!</h3>
-    <p>{{ name }} record is added to the database</p>
-    <p><i>You will be redirected to the class page in few seconds..</i></p>
+    {% if error %}
+        <p>{{ error.errors }}</p>
+    {% else %}
+        <h3>Registration Successful..!</h3>
+        <p>{{ name }} record is added to the database</p>
+        <p><i>You will be redirected to the class page in few seconds..</i></p>
+    {% endif %}
 {% endblock %}
