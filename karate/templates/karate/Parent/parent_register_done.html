@@ -1,0 +1,11 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="2;url={% url 'karate:parent_details' %}">
+{% endblock %}
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>Registration Successful..!</h3>
+    <p>{{ name }} record is added to the database</p>
+    <p><i>You will be redirected to the parents page in few seconds..</i></p>
+{% endblock %}

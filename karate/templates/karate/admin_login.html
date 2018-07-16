@@ -1,0 +1,33 @@
+{% extends 'karate/base.html' %}
+
+{% block body_block %}
+    <script>
+        f_count = 0
+        function guest_display(){
+            let x = document.getElementById('display_info');
+            f_count++;
+            if(f_count % 2 === 0 ){
+                x.style.display = "none";
+            }
+            else{
+                x.style.display = "block";
+            }
+        }
+    </script>
+    {% block navbar %}{% endblock %}
+    <div class="text-center" style="margin-top: 10%">
+            <h3>Log In</h3><br>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required><br><br>
+                <input type="password" name="password" placeholder="Password" required><br><br>
+                <input class="btn btn-primary" type="submit" value="LOG IN">
+            </form>
+            <a href="{% url 'karate:reset_password' %}">Forgot Password?</a>
+    </div>
+    <a href="#" class="nav-link" onclick="guest_display()">&rarr;More options</a>
+        <div id="display_info" style="display: none">
+            <p>Are you not the admin to this site?<br>Choose Guest Login.. You will be able to create and manipulate your own records<br><b>Note: The records you create will not be stored forever</b></p>
+            <a href="{% url 'karate:guest_home' %}"><button class="btn btn-info" type="button">Guest Login</button> </a>
+        </div>
+{% endblock %}

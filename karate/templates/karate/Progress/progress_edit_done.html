@@ -1,0 +1,26 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <a href="{% url 'karate:progress_details' %}">&lt;&lt;&lt;Go back to progress details</a>
+    <h3>Updated Progress</h3>
+    <br>
+    <form>
+        {% csrf_token %}
+        <div>
+            <p>Rank</p>
+            <p>{{ form.rank }}</p>
+        </div>
+
+        <div>
+            <p>Date Achieved</p>
+            <p>{{ form.date_achieved }}</p>
+        </div>
+
+        <div>
+            <p>Student</p>
+            <p>{{ form.student }}</p>
+        </div>
+    </form>
+    <a href="{% url 'karate:progress_details' %}">&lt;&lt;&lt;Go back to progress details</a>
+{% endblock %}

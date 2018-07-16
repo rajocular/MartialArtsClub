@@ -1,0 +1,73 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <a href="{% url 'karate:student_details' %}">&lt;&lt;&lt;Go back to student details</a>
+    <h3>Updated Profile</h3>
+    <br><br>
+    <br>
+    <form>
+        {% csrf_token %}
+        <div>
+            <p>First Name</p>
+            <p>{{ form.first_name }}</p>
+        </div>
+
+        <div>
+            <p>Last Name</p>
+            <p>{{ form.last_name }}</p>
+        </div>
+
+        <div>
+            <p>Date of Birth</p>
+            <p>{{ form.date_of_birth }}</p>
+        </div>
+
+        <div>
+            <p>Date Joined</p>
+            <p>{{ form.date_joined }}</p>
+        </div>
+
+        <div>
+            <p>Mobile</p>
+            <p>{{ form.mobile }}</p>
+        </div>
+
+        <div>
+            <p>Email</p>
+            <p>{{ form.email }}</p>
+        </div>
+
+        <div>
+            <p>Street Name</p>
+            <p>{{ form.street_name }}</p>
+        </div>
+
+        <div>
+            <p>City</p>
+            <p>{{ form.city }}</p>
+        </div>
+
+        <div>
+            <p>Province</p>
+            <p>{{ form.province }}</p>
+        </div>
+
+        <div>
+            <p>Rank</p>
+            <p>{{ form.rank }}</p>
+        </div>
+
+        <div>
+            <p>Is_parent</p>
+            <p>{{ form.is_parent }}</p>
+        </div>
+
+        <div>
+            <p>Parent_for</p>
+            <p>{{ form.parent_for }}</p>
+        </div>
+
+    </form>
+    <a href="{% url 'karate:student_details' %}">&lt;&lt;&lt;Go back to student details</a>
+{% endblock %}

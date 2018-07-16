@@ -1,0 +1,13 @@
+{% extends 'karate/base.html' %}
+
+{% block myhdg %} {% endblock %}
+
+{% block body_block %}
+    <h2>Password Reset Successful</h2>
+    <p>We've emailed you instructions for setting your password, if an account exists with the email you entered. You should receive them shortly.</p>
+
+    <p>If you don't receive an email, please make sure you've entered the address you registered with, and check your <strong>spam</strong> folder.</p>
+
+    <a href="{% url 'karate:admin_login' %}">&lt;&lt;&lt;Back to Login page</a>
+    {% block nav %}{% endblock %}
+{% endblock %}

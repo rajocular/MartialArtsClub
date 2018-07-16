@@ -1,0 +1,14 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block meta %}
+{% endblock %}
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>Registration Successful..!</h3>
+    <p>{{ name }} record is added to the database</p>
+    {% if parent_id %}
+        <a href="{% url 'karate:parent_check' parent_id %}">Click here to continue with the registration process</a>
+    {% else %}
+        <a href="{% url 'karate:student_details'  %}">Click here to go back to student details</a>
+    {% endif %}
+{% endblock %}

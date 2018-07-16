@@ -1,0 +1,29 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>Edit Progress Details</h3>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <p>Rank</p>
+            <p>{{ form.rank }}</p>
+        </div>
+
+        <div>
+            <p>Date Achieved</p>
+            <p>{{ form.date_achieved }}</p>
+        </div>
+
+        <div>
+            <p>Student</p>
+            <p>{{ form.student }}</p>
+        </div>
+
+        <div>
+            <input class="btn btn-primary" type="submit" value="Update">
+            <a href="{% url 'karate:progress_delete' progress_record.id %}"><button class="btn btn-danger" type="button">DELETE</button> </a>
+        </div>
+    </form>
+{% endblock %}

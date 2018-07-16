@@ -1,0 +1,11 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="2;url={% url 'karate:attendance_details' %}">
+{% endblock %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>Attendance record {{ id }} on {{ date }}  is deleted successfully</h3>
+    <p>You will be redirected to the Attendance details page in few seconds...</p>
+{% endblock %}

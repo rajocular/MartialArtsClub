@@ -1,0 +1,28 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>Progress Registration</h3>
+    <br><br>
+    <p>Please Fill the details</p>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <p>Rank</p>
+            <p>{{ form.rank }}</p>
+        </div>
+
+        <div>
+            <p>Date Achieved</p>
+            <p>{{ form.date_achieved }}</p>
+        </div>
+
+        <div>
+            <p>Student</p>
+            <p>{{ form.student }}</p>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+{% endblock %}

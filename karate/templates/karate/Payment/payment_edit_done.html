@@ -1,0 +1,31 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <a href="{% url 'karate:payment_details' %}">&lt;&lt;&lt;Go back to payment details</a>
+    <h3>Updated Payment Details</h3>
+    <br>
+    <form>
+        {% csrf_token %}
+        <div>
+            <p>Student</p>
+            <p>{{ form.student }}</p>
+        </div>
+
+        <div>
+            <p>Fee Type</p>
+            <p>{{ form.fee_type }}</p>
+        </div>
+
+        <div>
+            <p>Payment Date</p>
+            <p>{{ form.payment_date }}</p>
+        </div>
+
+        <div>
+            <p>Amount</p>
+            <p>{{ form.amount }}</p>
+        </div>
+    </form>
+    <a href="{% url 'karate:payment_details' %}">&lt;&lt;&lt;Go back to payment details</a>
+{% endblock %}

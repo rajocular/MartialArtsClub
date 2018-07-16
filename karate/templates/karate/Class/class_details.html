@@ -1,0 +1,122 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %} {% endblock %}
+{% block content %}
+    <script>
+        f_count = 0;
+        s_count = 0;
+        function filter_display(){
+            let x = document.getElementById('filter');
+            let y = document.getElementById('sort');
+            f_count++;
+            if(y.style.display === "flex")
+                s_count++;
+            y.style.display = "none";
+            if(f_count % 2 === 0 ){
+                x.style.display = "none";
+            }
+            else{
+                x.style.display = "flex";
+            }
+        }
+        function sort_display(){
+            let x = document.getElementById('sort');
+            let y = document.getElementById('filter');
+            s_count++;
+            if(y.style.display === "flex")
+                f_count++;
+            y.style.display = "none";
+            if(s_count % 2 === 0 ){
+                x.style.display = "none";
+            }
+            else{
+                x.style.display = "flex";
+            }
+        }
+    </script>
+    <h6>Click <a href="{% url 'karate:class_register' %}">here</a> to start registration for a new class timing</h6>
+
+{#    for filter menu#}
+    <a href="#" class="nav-link" onclick="filter_display()">Filter</a>
+        <div style="display: none" id="filter" class="navbar">
+            <div style="padding-left: 30%;">
+                <form style="border-color: white" class="form-control" method="post" >
+                    {% csrf_token %}
+                    <input style="width: 300px; " type="text" name="search" placeholder="Enter your keyword here"><br><br>
+                    <input class="btn btn-primary" style="margin-left: 40%" type="submit" value="search">
+                </form>
+            </div>
+
+        </div>
+
+{#    for sort menu#}
+    <a href="#" class="nav-link" onclick="sort_display()">Sort</a>
+    <div>
+        <div style="display: none" id="sort" class="navbar text-center">
+            <form style="border-color: white" class="form-control" method="post">
+                {% csrf_token %}
+
+                <div style="margin-top: 2%; margin-right: 17%">
+                    <label>Sort Criteria</label>
+                    <select class="btn btn-dark" name="sort_factor">
+                        <option value="class_id">Class ID</option>
+                        <option value="class_level">Level</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div style="margin-bottom: 2%; margin-left: 1%; margin-right: 17%">
+                    <label>Sort Order</label>
+                    <select class="btn btn-dark" name="sort_order">
+                        <option>Ascending</option>
+                        <option>Descending</option>
+                    </select>
+                </div>
+
+                <input class="btn btn-primary" style="margin-right: 9%" type="submit" value="Sort">
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a class="nav-link" href="{% url 'karate:class_details' %}">Reset Filters</a>
+    </div>
+    <br>
+
+    {% if classes %}
+        {% if query %}
+            <h6><i>Search results for the query: {{ query }}</i></h6>
+        {% else %}
+            {% if form_parent %}
+                <h6><i>Filtered Results for: <br> is_parent = {{ form_parent }}, </i>
+                {% if form_rank %}
+                    rank = {{ form_rank }}
+                {% endif %}
+                </h6>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    {% if classes %}
+        <table class="table table-hover">
+            <tr class="table-dark">
+                <td></td>
+                <td>Class ID</td>
+                <td>Level</td>
+                <td>Timing</td>
+                <td>Day</td>
+            </tr>
+            {% for class in  classes %}
+                <tr>
+                    <td><a href="{% url 'karate:class_edit' class.id %}">&#9998;</a></td>
+                    <td>{{ class.class_id }}</td>
+                    <td>{{ class.class_level }}</td>
+                    <td>{{ class.class_timing}}</td>
+                    <td>{{ class.class_day }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p> No records to display </p>
+    {% endif %}
+{% endblock %}

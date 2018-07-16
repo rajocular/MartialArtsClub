@@ -1,0 +1,58 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+
+    <h6><i>For Parent Registration</i></h6>
+    <p><b>Note: You must select a student from the dropdown</b></p>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div style="display: none">
+        <div>
+            <p>First Name</p>
+            <p>{{ form.first_name }}</p>
+        </div>
+
+        <div>
+            <p>Last Name</p>
+            <p>{{ form.last_name }}</p>
+        </div>
+
+        <div>
+            <p>Mobile</p>
+            <p>{{ form.mobile }}</p>
+        </div>
+
+        <div>
+            <p>Email</p>
+            <p>{{ form.email }}</p>
+        </div>
+
+        <div>
+            <p>Street Name</p>
+            <p>{{ form.street_name }}</p>
+        </div>
+
+        <div>
+            <p>City</p>
+            <p>{{ form.city }}</p>
+        </div>
+
+        <div>
+            <p>Province</p>
+            <p>{{ form.province }}</p>
+        </div>
+        </div>
+        <div>
+            <p>Student</p>
+            <p>{{ form.student }}</p>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+    {% endif %}
+{% endblock %}

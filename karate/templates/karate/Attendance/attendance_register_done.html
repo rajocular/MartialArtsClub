@@ -1,0 +1,12 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="2;url={% url 'karate:attendance_details' %}">
+{% endblock %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>Registration Successful..!</h3>
+    <p>{{ name }} is added to the database</p>
+    <p><i>You will be redirected to the class page in few seconds..</i></p>
+{% endblock %}

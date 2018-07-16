@@ -1,0 +1,11 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="2;url={% url 'karate:progress_details' %}">
+{% endblock %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>{{ name }}'s rank {{ rank }} record  is deleted successfully</h3>
+    <p>You will be redirected to the Progress details page in few seconds...</p>
+{% endblock %}

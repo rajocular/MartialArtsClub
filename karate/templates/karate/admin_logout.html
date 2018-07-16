@@ -1,0 +1,10 @@
+{% extends 'karate/base.html' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="2;url={% url 'karate:admin_login' %}">
+{% endblock %}
+
+{% block body_block %}
+    <h3>Thanks for your time..! Hope you come back soon</h3>
+    <p><i>You will redirected to the Login page in few seconds...</i></p>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <a href="{% url 'karate:parent_details' %}">&lt;&lt;&lt;Go back to parent details</a>
+    <h3>Updated Profile</h3>
+    <br><br>
+    
+    <form>
+        {% csrf_token %}
+        <div>
+            <p>First Name</p>
+            <p>{{ form.first_name }}</p>
+        </div>
+
+        <div>
+            <p>Last Name</p>
+            <p>{{ form.last_name }}</p>
+        </div>
+
+        <div>
+            <p>Mobile</p>
+            <p>{{ form.mobile }}</p>
+        </div>
+
+        <div>
+            <p>Email</p>
+            <p>{{ form.email }}</p>
+        </div>
+
+        <div>
+            <p>Street Name</p>
+            <p>{{ form.street_name }}</p>
+        </div>
+
+        <div>
+            <p>City</p>
+            <p>{{ form.city }}</p>
+        </div>
+
+        <div>
+            <p>Province</p>
+            <p>{{ form.province }}</p>
+        </div>
+
+        <div>
+            <p>Student</p>
+            <p>{{ form.student }}</p>
+        </div>
+
+
+    </form>
+    <a href="{% url 'karate:parent_details' %}">&lt;&lt;&lt;Go back to parent details</a>
+{% endblock %}

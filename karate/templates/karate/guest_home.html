@@ -1,0 +1,33 @@
+{% extends 'karate/base.html' %}
+
+{% block body_block %}
+    {% block welcome %}
+        <div class="container text-center">
+            <h2>Welcome</h2>
+            <p>You are a Guest to this Database</p>
+            <p>You don't have the permission to view, create, alter any of the following for safety and privacy concern</p>
+            <p>You will be still able to visualize the structure, flow and various functionality of the interface</p>
+            <p><a href="{% url 'karate:student_details' %}">Student details</a></p>
+            <p><a href="{% url 'karate:parent_details' %}">Parent details</a></p>
+            <p><a href="{% url 'karate:class_details' %}">Class details</a></p>
+            <p><a href="{% url 'karate:attendance_details' %}">Attendance details</a></p>
+            <p><a href="{% url 'karate:progress_details' %}">Progress details</a></p>
+            <p><a href="{% url 'karate:payment_details' %}">Payment details</a></p>
+            <h6>^^^Click on any option^^^</h6>
+            <h4>Or</h4>
+            <h6>&lt;&lt; Hover on the left end to use the navigation menu</h6>
+        </div>
+    {% endblock %}
+    <div class="sidebar">
+        <a href="{% url 'karate:guest_home' %}">Home</a>
+        <a href="{% url 'karate:student_details' %}">Students</a>
+        <a href="{% url 'karate:parent_details' %}">Parents</a>
+        <a href="{% url 'karate:class_details' %}">Class</a>
+        <a href="{% url 'karate:attendance_details' %}">Attendance</a>
+        <a href="{% url 'karate:progress_details' %}">Progress</a>
+        <a href="{% url 'karate:payment_details' %}">Payment</a>
+    </div>
+    <div class="content">
+       {% block content %} {% endblock %}
+    </div>
+{%  endblock %}

@@ -1,0 +1,10 @@
+{% extends 'karate/base.html' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="2;url={% url 'karate:login_page' %}">
+{% endblock %}
+
+{% block body_block %}
+    <h3>Invalid username/password<br>Try again with the correct combination</h3><br><br>
+    <p><i>You will redirected to the home page in few seconds...</i></p>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>Payment Registration</h3>
+    <br><br>
+    <p>Please Fill the details</p>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <p>Student</p>
+            <p>{{ form.student }}</p>
+        </div>
+
+        <div>
+            <p>Fee Type</p>
+            <p>{{ form.fee_type }}</p>
+        </div>
+
+        <div>
+            <p>Payment Date</p>
+            <p>{{ form.payment_date }}</p>
+        </div>
+
+        <div>
+            <p>Amount</p>
+            <p>{{ form.amount }}</p>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+{% endblock %}

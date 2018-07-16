@@ -10,6 +10,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
+.idea/
 dist/
 downloads/
 eggs/
@@ -102,3 +103,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Text backup files
+*.bak
+
+#Database
+*.sqlite3

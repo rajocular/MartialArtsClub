@@ -1,0 +1,75 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    <h3>Edit Student Profile</h3>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <p>First Name</p>
+            <p>{{ form.first_name }}</p>
+        </div>
+
+        <div>
+            <p>Last Name</p>
+            <p>{{ form.last_name }}</p>
+        </div>
+
+        <div>
+            <p>Date of Birth</p>
+            <p>{{ form.date_of_birth }}</p>
+        </div>
+
+        <div>
+            <p>Date Joined</p>
+            <p>{{ form.date_joined }}</p>
+        </div>
+
+        <div>
+            <p>Mobile</p>
+            <p>{{ form.mobile }}</p>
+        </div>
+
+        <div>
+            <p>Email</p>
+            <p>{{ form.email }}</p>
+        </div>
+
+        <div>
+            <p>Street Name</p>
+            <p>{{ form.street_name }}</p>
+        </div>
+
+        <div>
+            <p>City</p>
+            <p>{{ form.city }}</p>
+        </div>
+
+        <div>
+            <p>Province</p>
+            <p>{{ form.province }}</p>
+        </div>
+
+        <div>
+            <p>Is_parent</p>
+            <p>{{ form.is_parent }}</p>
+        </div>
+
+        <div>
+            <p>Parent_for</p>
+            <p>{{ form.parent_for }}</p>
+        </div>
+
+        <div style="display: none">
+            <p>Rank</p>
+            <p>{{ form.rank }}</p>
+        </div>
+        <div>
+            <input class="btn btn-primary" type="submit" value="Update">
+            <a href="{% url 'karate:student_delete' student.id %}"><button class="btn btn-danger" type="button">DELETE</button> </a>
+        </div>
+    </form>
+    <br>
+
+{% endblock %}

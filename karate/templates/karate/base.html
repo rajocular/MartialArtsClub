@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+{% block meta %}
+{% endblock %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'karate/bootstrap.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'karate/mystyle.css' %}" />
+        <title>KarateClub - {% block title %}Welcome!{% endblock %}</title>
+    </head>
+
+    <body>
+        {% block navbar %}
+            <div class="container">
+                    <ul class="navbar">
+
+                        {% if request.user.is_authenticated %}
+                             <li class="nav"><a href = "{% url 'karate:change_password' %}">Change Password</a></li>
+                             <li class="nav"><a href = "{% url 'karate:admin_logout' %}">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                    <hr>
+            </div>
+        {% endblock %}
+        <div>
+            {% block body_block %}*** {% endblock %}
+        </div>
+        <hr />
+
+    </body>
+</html>

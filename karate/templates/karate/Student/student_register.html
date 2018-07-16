@@ -1,0 +1,73 @@
+{% extends 'karate/admin_home.html' %}
+
+{% block welcome %}{% endblock %}
+{% block content %}
+    {% if msg %}
+        <p style="color: red">{{ msg }}</p>
+        <p> <b>Note: Also remember, You cannot choose parent_for if you are not the parent</b></p>
+        <a href="#" onclick="history.go(-1)">Click here</a> to Go Back and edit again
+        {% if form.has_error %}
+        <hr>
+        <p>You need to correct the following<br>{{ form.errors }}</p>
+        {% endif %}
+    {% else %}
+        <h3>Student Registration</h3>
+        <br><br>
+        <p>Please Fill the details</p>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <p>First Name</p>
+                <p>{{ form.first_name }}</p>
+            </div>
+
+            <div>
+                <p>Last Name</p>
+                <p>{{ form.last_name }}</p>
+            </div>
+
+            <div>
+                <p>Date of Birth</p>
+                <p>{{ form.date_of_birth }}</p>
+            </div>
+
+            <div>
+                <p>Date Joined</p>
+                <p>{{ form.date_joined }}</p>
+            </div>
+
+            <div>
+                <p>Mobile</p>
+                <p>{{ form.mobile }}</p>
+            </div>
+
+            <div>
+                <p>Email</p>
+                <p>{{ form.email }}</p>
+            </div>
+
+            <div>
+                <p>Street Name</p>
+                <p>{{ form.street_name }}</p>
+            </div>
+
+            <div>
+                <p>City</p>
+                <p>{{ form.city }}</p>
+            </div>
+
+            <div>
+                <p>Province</p>
+                <p>{{ form.province }}</p>
+            </div>
+
+            <div>
+                <p>Is_parent</p>
+                <p>{{ form.is_parent }}</p>
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Register">
+        </form>
+    {% endif %}
+{% endblock %}
