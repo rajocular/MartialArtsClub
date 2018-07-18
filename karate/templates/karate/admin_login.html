@@ -25,9 +25,11 @@
             </form>
             <a href="{% url 'karate:reset_password' %}">Forgot Password?</a>
     </div>
+    <div class="text-center">
     <a href="#" class="nav-link" onclick="guest_display()">&rarr;More options</a>
         <div id="display_info" style="display: none">
             <p>Are you not the admin to this site?<br>Choose Guest Login.. You will be able to create and manipulate your own records<br><b>Note: The records you create will not be stored forever</b></p>
             <a href="{% url 'karate:guest_home' %}"><button class="btn btn-info" type="button">Guest Login</button> </a>
         </div>
+    </div>
 {% endblock %}

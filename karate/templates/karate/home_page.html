@@ -35,12 +35,12 @@
             <p>You are the Admin to this Database</p>
             <p>You have the permission to view, create, alter the following</p>
         {% else %}
-            <p style="float: right">Your session started at {{ start_time }}</p>
+            <p>Your session started at {{ start_time }}</p>
             <p>You are a Guest to this Database</p>
-            <p>You don't have the permission to view, create, alter any of the following for safety and privacy concern</p>
-            <p>You will be still able to visualize the structure, flow and various functionality of the interface</p>
-            <p>You session length will be 30 minutes and you will be logged out automatically</p>
-            <p style="color: red">All the data you enter will get deleted after your session has ended</p>
+            <p>You don't have the permission to view, create, alter the actual data for safety and privacy concern</p>
+            <p>You will be still able to visualize the structure, flow and various functionality of the interface by creating records on your own</p>
+            <p>You session length is 30 minutes and you will be logged out automatically</p>
+            <p style="color: red">All your records will get deleted after your session has ended</p>
         {% endif %}
         <p><a href="{% url 'karate:student_details' %}">Student details</a></p>
         <p><a href="{% url 'karate:parent_details' %}">Parent details</a></p>
