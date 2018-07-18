@@ -1,0 +1,12 @@
+{% extends 'karate/base.html' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="2;url={% url 'karate:admin_login' %}">
+{% endblock %}
+
+{% block body_block %}
+    <h1>Session Expired</h1><br><br>
+    <p><i>All the data you have entered will be deleted in a while..</i></p>
+    <p>You will get redirected to Login Page<br>Feel free to start another session</p><br><br>
+    <p><b><i>Thanks for your time</i></b></p>
+{% endblock %}

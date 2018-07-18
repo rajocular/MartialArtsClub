@@ -11,6 +11,7 @@ urlpatterns = [
     path(r'admin_logout', views.admin_logout, name='admin_logout'),
 
     path(r'guest_home', views.guest_home, name='guest_home'),
+    path(r'session_expired', views.session_expired, name='session_expired'),
 
     path(r'student_details', views.student_details, name='student_details'),
     path(r'parent_details', views.parent_details, name='parent_details'),

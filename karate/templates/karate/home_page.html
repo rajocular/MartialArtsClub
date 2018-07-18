@@ -1,0 +1,72 @@
+{% extends 'karate/base.html' %}
+
+
+{% block session_block %}
+    {% if not request.user.is_authenticated %}
+        <p style="margin-left: 15%" id="session"></p>
+        <script>
+        function countdown(){
+            let time_c = "{{ start_time }}";
+            let time_count = new Date(time_c).getTime();
+            {#let countDownDate = new Date(time_count).getTime();#}
+            {#document.getElementById("session").innerHTML = time_count;#}
+            let x = setInterval(function () {
+                let now = new Date().getTime();
+
+                let distance = now - time_count;
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("session").innerHTML = minutes + "m " + seconds + "s ";
+                if (minutes > 1) {
+                    clearInterval(x);
+                    location.href = "session_expired";
+                }
+            }, 1000);
+        }
+        </script>
+    {% endif %}
+{% endblock %}
+{% block body_block %}
+    {% block welcome %}
+    <div class="container text-center">
+        <h2>Welcome</h2>
+        {% if request.user.is_authenticated %}
+            <p>You are the Admin to this Database</p>
+            <p>You have the permission to view, create, alter the following</p>
+        {% else %}
+            <p>You are a Guest to this Database</p>
+            <p>You don't have the permission to view, create, alter any of the following for safety and privacy concern</p>
+            <p>You will be still able to visualize the structure, flow and various functionality of the interface</p>
+            <p>You session length will be 30 minutes and you will be logged out automatically</p>
+            <p style="color: red">All the data you enter will get deleted after your session has ended</p>
+        {% endif %}
+        <p><a href="{% url 'karate:student_details' %}">Student details</a></p>
+        <p><a href="{% url 'karate:parent_details' %}">Parent details</a></p>
+        <p><a href="{% url 'karate:class_details' %}">Class details</a></p>
+        <p><a href="{% url 'karate:attendance_details' %}">Attendance details</a></p>
+        <p><a href="{% url 'karate:progress_details' %}">Progress details</a></p>
+        <p><a href="{% url 'karate:payment_details' %}">Payment details</a></p>
+        <h6>^^^Click on any option^^^</h6>
+        <h4>Or</h4>
+        <h6>&lt;&lt; Hover on the left end to use the navigation menu</h6>
+    </div>
+    {% endblock %}
+    <div class="sidebar">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'karate:admin_home' %}">Home</a>
+        {% else %}
+        {% endif %}
+        <a href="{% url 'karate:student_details' %}">Students</a>
+        <a href="{% url 'karate:parent_details' %}">Parents</a>
+        <a href="{% url 'karate:class_details' %}">Class</a>
+        <a href="{% url 'karate:attendance_details' %}">Attendance</a>
+        <a href="{% url 'karate:progress_details' %}">Progress</a>
+        <a href="{% url 'karate:payment_details' %}">Payment</a>
+    </div>
+    <div class="content">
+       {% block content %} {% endblock %}
+    </div>
+
+{%  endblock %}
+

@@ -8,9 +8,10 @@
         <link rel="stylesheet" type="text/css" href="{% static 'karate/bootstrap.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'karate/mystyle.css' %}" />
         <title>MartialArtsClub - {% block title %}Welcome!{% endblock %}</title>
+        {% block meta %}{% endblock %}
     </head>
 
-    <body>
+    <body onload="countdown()">
         {% block navbar %}
             <div class="container">
                     <ul class="navbar">
@@ -23,6 +24,11 @@
                     <hr>
             </div>
         {% endblock %}
+
+        <div>
+            {% block session_block %} {% endblock %}
+        </div>
+
         <div>
             {% block body_block %}*** {% endblock %}
         </div>
