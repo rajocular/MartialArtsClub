@@ -3,7 +3,13 @@
 
 {% block session_block %}
     {% if not request.user.is_authenticated %}
-        <p style="margin-left: 15%" id="session"></p>
+        <div class="container">
+            <ul class="navbar">
+                     <li class="nav"><p style="margin-left: 15%" id="session"></p></li>
+                     <li class="nav"><p><a href="{% url 'karate:session_expired' %}"><button type="button">End Session</button> </a></p></li>
+            </ul>
+            <hr>
+        </div>
         <script>
         function countdown(){
             let time_c = "{{ start_time }}";
@@ -55,8 +61,7 @@
     {% endblock %}
     <div class="sidebar">
         {% if request.user.is_authenticated %}
-        <a href="{% url 'karate:admin_home' %}">Home</a>
-        {% else %}
+            <a href="{% url 'karate:admin_home' %}">Home</a>
         {% endif %}
         <a href="{% url 'karate:student_details' %}">Students</a>
         <a href="{% url 'karate:parent_details' %}">Parents</a>
@@ -64,6 +69,9 @@
         <a href="{% url 'karate:attendance_details' %}">Attendance</a>
         <a href="{% url 'karate:progress_details' %}">Progress</a>
         <a href="{% url 'karate:payment_details' %}">Payment</a>
+        {% if not request.user.is_authenticated %}
+            <a href="{% url 'karate:session_expired' %}">---End Session---</a>
+        {% endif %}
     </div>
     <div class="content">
        {% block content %} {% endblock %}
