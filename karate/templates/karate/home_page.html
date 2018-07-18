@@ -3,12 +3,9 @@
 
 {% block session_block %}
     {% if not request.user.is_authenticated %}
-        <div class="container">
-            <ul class="navbar">
-                     <li class="nav"><p style="margin-left: 15%" id="session"></p></li>
-                     <li class="nav"><p><a href="{% url 'karate:session_expired' %}"><button type="button">End Session</button> </a></p></li>
-            </ul>
-            <hr>
+        <div class="navbar">
+                 <p style="margin-left: 15%" id="session"></p>
+                 <p style="margin-right: 15%"><a href="{% url 'karate:session_expired' %}"><button class="btn btn-danger" type="button">End Session</button> </a></p>
         </div>
         <script>
         function countdown(){
@@ -70,7 +67,7 @@
         <a href="{% url 'karate:progress_details' %}">Progress</a>
         <a href="{% url 'karate:payment_details' %}">Payment</a>
         {% if not request.user.is_authenticated %}
-            <a href="{% url 'karate:session_expired' %}">---End Session---</a>
+            <a href="{% url 'karate:session_expired' %}">End Session</a>
         {% endif %}
     </div>
     <div class="content">
