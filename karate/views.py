@@ -24,7 +24,7 @@ def guest_home(request):
 
 def admin_login(request):
     logout(request)
-    start_date = datetime.datetime.now().strftime("%b %d, %Y %H:%M:%S")
+    start_date = (datetime.datetime.now() + datetime.timedelta(hours=-4)).strftime("%b %d, %Y %H:%M:%S")
     request.session['user_session'] = str(start_date)
     request.session.set_expiry(1800)
     if request.method == 'POST':
@@ -41,8 +41,12 @@ def admin_login(request):
 
 
 def session_expired(request):
+    GuestStudent.objects.all().delete()
     GuestParent.objects.all().delete()
     GuestClass.objects.all().delete()
+    GuestAttendance.objects.all().delete()
+    GuestProgress.objects.all().delete()
+    GuestPayment.objects.all().delete()
     return render(request, 'karate/session_expired.html')
 
 
